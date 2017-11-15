@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/move.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+				list-style: none;
+			}
+			
+			.wrap {
+				width: 100%;
+				height: 2800px;
+				position: relative;
+			}
+			
+			nav {
+				position: relative;
+			}
+			
+			.right {
+				width: 480px;
+				height: 40px;
+				float: right;
+				position: relative;
+				top: 10px;
+			}
+			
+			span>a {
+				width: 40px;
+				padding: 5px !important;
+				font-size: 12px !important;
+				color: #FFFFFF !important;
+				margin: 0px 2px 1px 1px !important;
+			}
+			
+			.btn {
+				background-color: #222222;
+				color: #FFFFFF;
+			}
+			
+			#aaa {
+				border: 1px solid #FFFFFF;
+				width: 290px;
+				height: 30px;
+				float: left;
+			}
+			
+			#qqq {
+				border: 1px solid #000000;
+				background-color: #27282A;
+				color: #FFFFFF;
+			}
+			
+			#www {
+				top: 7px !important;
+				color: #FFFFFF
+			}
+			
+			.btm {
+				color: #FFFFFF;
+				height: 30px;
+				width: 750px;
+				position: absolute;
+				top: 100px;
+				left: -200px;
+				text-align: center;
+			}
+			
+			.btm>ul {
+				position: relative;
+				width: 750px;
+				height: 35px;
+			}
+			
+			.btm>ul>li>a {
+				text-decoration: none;
+				color: #FFFFFF;
+			}
+			
+			.btm>ul>li {
+				width: 100px;
+				height: 30px;
+				float: left;
+			}
+			
+			.btm>ul>span {
+				display: block;
+				position: absolute;
+				background-color: #FFFFFF;
+				width: 100px;
+				height: 2px;
+				left: 0px;
+				bottom: 0;
+			}
+			
+			.carousel {
+				top: -20px;
+			}
+			
+			.content {
+				position: relative;
+				width: 90%;
+				height: 1650px;
+				margin: 0 auto;
+			}
+			
+			.content-top {
+				display: block;
+				width: 100%;
+				height: 405px;
+				border: 1px solid #C3A765;
+				position: relative;
+				border-radius: 2%;
+			}
+			
+			/*.content-top>img {
+				width: 30%;
+				height: 400px;
+				cursor: pointer;
+				border: 1px solid #A3A3A3;
+			}*/
+			/************************************/
+			
+			.wrapc:nth-of-type(1) {
+				position: absolute;	
+				left: 5%;
+				top: 100px;
+				width: 365px;
+				height: 134px;
+				/*border: 5px solid green;*/
+				
+			}
+			.wrapc:nth-of-type(2) {
+				position: absolute;	
+				left: 37%;
+				top: 100px;
+				width: 365px;
+				height: 134px;
+				/*border: 5px solid green;*/
+				
+			}
+			.wrapc:nth-of-type(3) {
+				position: absolute;	
+				left: 70%;
+				top: 100px;
+				width: 365px;
+				height: 134px;
+				/*border: 5px solid green;*/
+				
+			}
+			
+			.boxc {
+				width: 365px;
+				height: 400px;
+				/*border: 5px solid red;*/
+				margin-left: 0px;
+				margin-top: -100px;
+				transform-style: preserve-3d;
+				perspective: 1000px;
+				transform: rotateY(180deg);
+				transition: 1s;
+			}
+			
+			.topc,.middlec,.bottomc{
+				width: 365px;
+				height: 134px;
+				/*backface-visibility: hidden;*/
+				background-image: url(img/lc1.jpg);
+			}
+			#topcc,#middlecc,#bottomcc{
+				width: 365px;
+				height: 134px;
+				/*backface-visibility: hidden;*/
+				background-image: url(img/lc2.jpg);
+			}
+			#topcd,#middlecd,#bottomcd{
+				width: 365px;
+				height: 134px;
+				/*backface-visibility: hidden;*/
+				background-image: url(img/lc3.jpg);
+			}
+			
+			.maskc {
+				width: 365px;
+				height: 134px;
+				color: #C3A765;
+				font-size: 35px;
+				font-weight: 900;
+				text-align: center;
+				line-height: 134px;
+				transform: rotateY(-180deg) translateZ(1px) translateY(-268px);
+				background: rgba(255, 255, 255, 0);
+			}
+			
+			.topc {
+				background-position: 0 0;
+				transform-origin: bottom;
+				transform: rotateX(-180deg);
+				transition: 1s .5s linear;
+			}
+			
+			.middlec {
+				background-position: 0 -134px;
+			}
+			
+			.bottomc {
+				transform-origin: top;
+				transform: rotateX(180deg);
+				background-position: 0 -268px;
+				transition: 1s linear;
+			}
+			
+			.wrapc:hover {
+				overflow: visible;
+			}
+			
+			.wrapc:hover>.boxc {
+				transform: rotateY(0deg);
+			}
+			
+			.wrapc:hover .topc,
+			.wrapc:hover .bottomc {
+				transform: rotateX(0deg);
+			}
+			/***************************************/
+			
+			.content-top>img:nth-of-type(1) {
+				margin-left: 8px;
+			}
+			
+			.content-top>img:nth-of-type(2) {
+				margin: 5px 4%;
+			}
+			/********选项卡*********/
+			
+			.content-centre {
+				position: relative;
+				width: 100%;
+			}
+			
+			.content-centre-t {
+				width: 100%;
+			}
+			
+			.content-centre-c {
+				position: absolute;
+				top: 370px;
+				width: 100%;
+			}
+			
+			.content-centre-t>ul {
+				border-bottom: 1px solid #A3A3A3;
+				display: flex;
+				margin: 0;
+			}
+			
+			.content-centre-c>ul {
+				border-bottom: 1px solid #A3A3A3;
+				display: flex;
+				margin: 0;
+			}
+			
+			.content-centre-t>ul>li {
+				display: block;
+				float: left;
+				list-style: none;
+				height: 45px;
+				flex: 1;
+				font-size: 16px;
+				text-align: center;
+				line-height: 45px;
+			}
+			
+			.content-centre-c>ul>li {
+				display: block;
+				float: left;
+				list-style: none;
+				height: 45px;
+				flex: 1;
+				font-size: 16px;
+				text-align: center;
+				line-height: 45px;
+			}
+			
+			.cct-box {
+				display: block;
+				width: 100%;
+			}
+			
+			.cct-box>li {
+				width: 23%;
+				height: 300px;
+				margin: 5px 0;
+				float: left;
+				overflow: hidden;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+			
+			.cct-box>li:nth-of-type(2),
+			.cct-box>li:nth-of-type(3) {
+				margin: 5px 2%;
+			}
+			
+			.cct-box>li>p {
+				width: 100%;
+				height: 300px;
+				background: rgba(255, 255, 255, 0.5);
+				text-align: center;
+				line-height: 30px;
+				position: relative;
+				transition: all 1s;
+			}
+			
+			.kkk {
+				color: #FFFFFF;
+				background-color: #8A6D3B;
+			}
+			
+			.qqq {
+				background-color: red;
+			}
+			
+			#span {
+				text-align: center;
+				font-size: 16px;
+				color: red;
+				background-color: #DDDDDD;
+				width: 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+			
+			.content-centre-b {
+				width: 100%;
+				height: 406px;
+				border: 1px solid #EEEEEE;
+				position: absolute;
+				top: 800px;
+			}
+			
+			.content-centre-b>div {
+				width: 100%;
+				height: 350px;
+				text-align: center;
+				margin-top: 50px;
+			}
+			
+			.content-centre-b>div>p {
+				width: 14%;
+				float: left;
+				height: 150px;
+				margin: 1%;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.content-centre-b>div>p>span {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 1s;
+			}
+			
+			.content-centre-b>div>p>span>img {
+				display: block;
+				width: 100%;
+				height: 150px;
+			}
+			
+			.content-centre-b>div>p>span:hover {
+				top: -150px;
+			}
+			
+			.content-centre-b>div>p:nth-of-type(1) {
+				margin-left: 3%;
+			}
+			
+			.content-centre-b>div>p:nth-of-type(7) {
+				margin-left: 3%;
+			}
+			
+			#img3 {
+				position: absolute;
+				top: -15px;
+				left: 38%;
+			}
+			/****************/
+			
+			.bottom {
+				width: 100%;
+				height: 266px;
+				position: absolute;
+				bottom: 0;
+				background-color: #231F20;
+				color: #CDD9D9;
+			}
+			
+			.bottom>div {
+				width: 90%px;
+				height: 70%;
+				margin: 3% 5%;
+				display: flex;
+			}
+			
+			.tbm-left {
+				border-right: 2px solid #888687;
+				flex: 3;
+			}
+			
+			.tbm-center {
+				border-right: 2px solid #888687;
+				flex: 3;
+			}
+			
+			.tbm-right {
+				flex: 4;
+				
+				
+			}
+			
+			.tbm-left>ul {
+				width: 100%;
+				height: 100px;
+			}
+			
+			.tbm-left>ul>li {
+				float: left;
+				list-style: none;
+				margin-right: 15%;
+			}
+			
+			.tbm-left>ul>li>span {
+				position: relative;
+				display: block;
+				width: 36px;
+				height: 36px;
+				overflow: hidden;
+			}
+			
+			.tbm-left>ul>li>span>img {
+				position: absolute;
+			}
+			
+			#jl1>img {
+				top: -72px;
+			}
+			
+			#jl2>img {
+				top: -36px;
+			}
+			
+			#jl3>img {
+				top: 0px;
+			}
+			
+			.tbm-center>ul {
+				float: left;
+				margin: 2%;
+			}
+			
+			.tbm-center>ul>li {
+				list-style: none;
+			}
+			
+			.tbm-center>ul>li:nth-of-type(1) {
+				font-size: 20px;
+				font-weight: 200;
+			}
+			
+			.tbm-right>ul {
+				width: 100%;
+			}
+			
+			.tbm-right>ul>li {
+				float: left;
+				margin: 10px 2%;
+			}
+			
+			.tbm-right>ul>li>img {
+				width: 92px;
+				height: 92px;
+			}
+			#sh{
+				
+				display: block;
+				color: #FFFFFF;
+				position: fixed;
+				right: 0;
+				bottom: 34px;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				font-size: 20px;
+				transform:rotate(90deg);
+				background: rgba(255, 255, 255, 0.5);
+			}
+			#sh>a{
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+		</style>
+		<!--********************-->
+		<script type="text/javascript">
+			var data = [{
+
+					"src": "img/1.jpg",
+					"span": "派的门 实木复合门 PV016<br>市场价:2090.00 "
+
+				},
+				{
+					"src": "img/2.jpg",
+					"span": "派的门 实木复合门 PV009<br>市场价:2090.00 "
+				},
+				{
+					"src": "img/3.jpg",
+					"span": "派的门 实木复合门 PV001<br>市场价:2090.00 "
+				},
+				{
+					"src": "img/4.jpg",
+					"span": "派的门 实木复合单开造型门 PV005<br>市场价: 2640.00 "
+				},
+				{
+					"src": "img/5.jpg",
+					"span": "大卫地板 榆木 F09LG03-F1-20<br>市场价: 423.00 "
+				},
+				{
+					"src": "img/6.jpg",
+					"span": "大卫地板 枫桦 F07G01-F1-12<br>市场价: 403.00 "
+				},
+				{
+					"src": "img/7.jpg",
+					"span": "大卫地板 天料木 S62G03-F4<br>市场价: 482.00 "
+				},
+				{
+					"src": "img/8.jpg",
+					"span": "大卫地板 欧洲枫桦 S50LG02<br>市场价: 482.00 "
+				},
+				{
+					"src": "img/9.jpg",
+					"span": "东鹏瓷砖 纳福娜直纹 YG803003 800*800<br>市场价: 105.00 "
+				},
+				{
+					"src": "img/10.jpg",
+					"span": "安华大理石瓷砖 青龙玉 NF080675P	800*800<br>市场价: 100.00 "
+				},
+				{
+					"src": "img/11.jpg",
+					"span": "安华大理石瓷砖 冰珀玉 NF080503P 800*800<br>市场价: 90.00 "
+				},
+				{
+					"src": "img/12.jpg",
+					"span": "安华大理石瓷砖 金叶米黄	NF080771P 800*800<br>市场价: 90.00 "
+				},
+				{
+					"src": "img/13.jpg",
+					"span": "阿诺橱柜 石英石9系列成型台面 SSC9-P<br>市场价: 0.00 "
+				},
+				{
+					"src": "img/14.jpg",
+					"span": "皮阿诺橱柜 2017年新品石英石成型台面 PIANO-PTSH916<br>市场价: 0.00 "
+				},
+				{
+					"src": "img/15.jpg",
+					"span": "皮阿诺橱柜 2017年新品石英石成型台面 PIANO-YTSH<br>市场价: 0.00 "
+				},
+				{
+					"src": "img/16.jpg",
+					"span": "皮阿诺橱柜 石英石8系列成型台面 SSC8-P<br>市场价: 0.00 "
+				},
+				{
+					"src": "img/17.jpg",
+					"span": "TOTO 智能坐便器 CES4721A<br>市场价: 20672.00 "
+				},
+				{
+					"src": "img/18.jpg",
+					"span": "TOTO 智能坐便器 CES6631B<br>市场价: 11050.00 "
+				},
+				{
+					"src": "img/19.jpg",
+					"span": "TOTO 卫洗丽 TCF6631CS<br>市场价: 5775.00 "
+				},
+				{
+					"src": "img/20.jpg",
+					"span": "TOTO 连体坐便器 CW870BT/TC394CVK<br>市场价: 11116.00 "
+				},
+
+			]
+			var data1 = [{
+					"src": "img1/1.jpg",
+					"span": "派的门 实木复合门 PV016<br>市场价:2090.00 "
+
+				},
+				{
+					"src": "img1/2.jpg",
+					"span": "派的门 实木复合门 PV009<br>市场价:2090.00 "
+				},
+				{
+					"src": "img1/3.jpg",
+					"span": "派的门 实木复合门 PV001<br>市场价:2090.00 "
+				},
+				{
+					"src": "img1/4.jpg",
+					"span": "派的门 实木复合单开造型门 PV005<br>市场价: 2640.00 "
+				},
+				{
+					"src": "img1/5.jpg",
+					"span": "大卫地板 榆木 F09LG03-F1-20<br>市场价: 423.00 "
+				},
+				{
+					"src": "img1/6.jpg",
+					"span": "大卫地板 枫桦 F07G01-F1-12<br>市场价: 403.00 "
+				},
+				{
+					"src": "img1/7.jpg",
+					"span": "大卫地板 天料木 S62G03-F4<br>市场价: 482.00 "
+				},
+				{
+					"src": "img1/8.jpg",
+					"span": "大卫地板 欧洲枫桦 S50LG02<br>市场价: 482.00 "
+				},
+				{
+					"src": "img1/9.jpg",
+					"span": "东鹏瓷砖 纳福娜直纹 YG803003 800*800<br>市场价: 105.00 "
+				},
+				{
+					"src": "img1/10.jpg",
+					"span": "安华大理石瓷砖 青龙玉 NF080675P	800*800<br>市场价: 100.00 "
+				},
+				{
+					"src": "img1/11.jpg",
+					"span": "安华大理石瓷砖 冰珀玉 NF080503P 800*800<br>市场价: 90.00 "
+				},
+				{
+					"src": "img1/12.jpg",
+					"span": "安华大理石瓷砖 金叶米黄	NF080771P 800*800<br>市场价: 90.00 "
+				},
+				{
+					"src": "img1/13.jpg",
+					"span": "阿诺橱柜 石英石9系列成型台面 SSC9-P<br>市场价: 0.00 "
+				},
+				{
+					"src": "img1/14.jpg",
+					"span": "皮阿诺橱柜 2017年新品石英石成型台面 PIANO-PTSH916<br>市场价: 0.00 "
+				},
+				{
+					"src": "img1/15.jpg",
+					"span": "皮阿诺橱柜 2017年新品石英石成型台面 PIANO-YTSH<br>市场价: 0.00 "
+				},
+				{
+					"src": "img1/16.jpg",
+					"span": "皮阿诺橱柜 石英石8系列成型台面 SSC8-P<br>市场价: 0.00 "
+				},
+			]
+			window.onload = function() {
+				var btm = document.getElementsByClassName('btm')[0]
+				var oUl4 = btm.getElementsByTagName('ul')[0]
+				var oLis = oUl4.getElementsByTagName("li")
+				var span1 = oUl4.getElementsByTagName("span")[0]
+
+				for(var i = 0; i < oLis.length; i++) {
+					oLis[i].index = i;
+					oLis[i].onmouseover = function() {
+						//console.log(i)//6
+						move(span1, {
+							"left": this.index * 100
+						});
+					}
+				}
+				for(var i = 0; i < oLis.length; i++) {
+					oLis[i].index = i;
+					oLis[i].onmouseout = function() {
+						//console.log(i)//6
+						move(span1, {
+							"left": 0
+						});
+					}
+				}
+
+				var oUl1 = document.getElementsByClassName('oul')[0]
+				var oLi1 = oUl1.getElementsByTagName('li')
+				var oOl = document.getElementsByClassName('cct-box')[0]
+				var oLi2 = oOl.getElementsByTagName('li')
+				var p1 = oOl.getElementsByTagName('p')
+				var span = oOl.getElementsByTagName('span')
+
+				var oUl1t = document.getElementsByClassName('oul')[1]
+				var oLi1t = oUl1t.getElementsByTagName('li')
+				var oOlt = document.getElementsByClassName('cct-box')[1]
+				var oLi2t = oOlt.getElementsByTagName('li')
+				var p1t = oOlt.getElementsByTagName('p')
+				var spant = oOlt.getElementsByTagName('span')
+
+				var ccb = document.getElementsByClassName('content-centre-b')[0]
+				var odiv1 = ccb.getElementsByTagName('div')[0]
+				for(var i = 0; i < 12; i++) {
+					odiv1.innerHTML += '<p><span><img id="img1" src="img2/' + (i + 13) + '.jpg"/><img id="img2" src="img2/' + (i + 1) + '.jpg"/></span></p>'
+				}
+				/******************************/
+				for(var z = 0; z < oLi2.length; z++) {
+					var n = z + 1;
+					oLi2[z].style.backgroundImage = 'url(' + data[n].src + ')'
+				}
+				for(var z = 0; z < span.length; z++) {
+					var n = z + 1;
+					span[z].innerHTML = data[n].span
+				}
+				for(var i = 0; i < oLi2.length; i++) {
+					oLi2[i].index = i;
+					oLi2[i].onmouseover = function() {
+						/*move(p1[this.index],{"opacity": 0})*/
+						p1[this.index].style.opacity = '0'
+					}
+					oLi2[i].onmouseout = function() {
+						/*move(p1[this.index],{"opacity": 0})*/
+						p1[this.index].style.opacity = '0.8'
+					}
+
+				}
+				for(var i = 0; i < oLi1.length; i++) {
+					oLi1[i].index = i;
+
+					oLi1[i].onclick = function() {
+						for(var j = 0; j < oLi1.length; j++) {
+							oLi1[j].className = "";
+						}
+						this.className = 'kkk'
+						var m = this.index;
+
+						for(var z = 0; z < oLi2.length; z++) {
+							var n = z + 1;
+							oLi2[z].style.backgroundImage = 'url(' + data[m * 4 + n - 1].src + ')'
+
+						}
+						for(var z = 0; z < span.length; z++) {
+							var n = z + 1;
+							span[z].innerHTML = data[m * 4 + n - 1].span
+							//document.getElementById("span").innerHTML = data[m*4+n-1].span
+						}
+					}
+				}
+				/**************************/
+				for(var z = 0; z < oLi2t.length; z++) {
+					var n = z + 1;
+					oLi2t[z].style.backgroundImage = 'url(' + data1[n].src + ')'
+				}
+				for(var z = 0; z < spant.length; z++) {
+					var n = z + 1;
+					spant[z].innerHTML = data1[n].span
+				}
+				for(var i = 0; i < oLi2t.length; i++) {
+					oLi2t[i].index = i;
+					oLi2t[i].onmouseover = function() {
+						/*move(p1[this.index],{"opacity": 0})*/
+						p1t[this.index].style.opacity = '0'
+					}
+					oLi2t[i].onmouseout = function() {
+						/*move(p1[this.index],{"opacity": 0})*/
+						p1t[this.index].style.opacity = '0.8'
+					}
+
+				}
+				for(var i = 0; i < oLi1.length; i++) {
+					oLi1t[i].index = i;
+
+					oLi1t[i].onclick = function() {
+						for(var j = 0; j < oLi1t.length; j++) {
+							oLi1t[j].className = "";
+						}
+						this.className = 'kkk'
+						var m = this.index;
+
+						for(var z = 0; z < oLi2t.length; z++) {
+							var n = z + 1;
+							oLi2t[z].style.backgroundImage = 'url(' + data1[m * 4 + n - 1].src + ')'
+
+						}
+						for(var z = 0; z < spant.length; z++) {
+							var n = z + 1;
+							spant[z].innerHTML = data1[m * 4 + n - 1].span
+							//document.getElementById("span").innerHTML = data[m*4+n-1].span
+						}
+					}
+				}
+
+				/*for(var z = 0; z < oLi2.length; z++) {
+					var n = z + 1;
+					oLi2[z].style.backgroundImage = 'url(img/' + n + '.jpg)'
+				}
+				for(var i = 0; i < oLi1.length; i++) {
+					oLi1[i].index = i;
+					oLi1[i].onclick = function() {
+						for(var j = 0; j < oLi1.length; j++) {
+							oLi1[j].className = "";
+						}
+						this.className = 'kkk'
+						var m = this.index;
+
+						for(var z = 0; z < oLi2.length; z++) {
+							var n = z + 1;
+							oLi2[z].style.backgroundImage = 'url(img/' + (m * 4 + n) + '.jpg)'
+						}
+					}
+				}*/
+
+			}
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<div class='wrap'>
+			<nav style='height: 150px;' class="navbar navbar-inverse  ">
+				<div class="container">
+					<!--<div class="navbar-header">-->
+					<a class="navbar-brand " href="#">
+						<img alt="Brand" src="img/log1.png">
+					</a>
+					<!--</div>-->
+					<div class='right '>
+						<div style="" id='aaa' class='input-group'>
+							<input style="width: 270px; height: 30px;" type="text" id='qqq' placeholder="请输入关键字" class="form-control ">
+							<div style="" id='www' class='glyphicon glyphicon-search'></div>
+							<!--<span class="input-group-addon btn btn-primary btn-success">搜索</span>-->
+						</div>
+						<div id="">
+							<span><a class="navbar-brand" href="#">登陆</a></span><span><a class="navbar-brand" href="#">注册</a></span>
+							<button class="btn glyphicon glyphicon-shopping-cart" type="button"><span class="badge">5</span></button>
+						</div>
+						<div class='btm'>
+							<ul>
+								<li>
+									<a href="">首页</a>
+								</li>
+								<li>
+									<a href="设计大师.html">设计大师</a>
+								</li>
+								<li>
+									<a href="">399钻石套餐</a>
+								</li>
+								<li>
+									<a href="">选材中心</a>
+								</li>
+								<li>
+									<a href="">精选家居</a>
+								</li>
+								<li>
+									<a href="">时尚Magazine</a>
+								</li>
+								<li>
+									<a href="城市加盟.html">城市加盟</a>
+								</li>
+								<span></span>
+
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</nav>
+			<!--*****************************-->
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- 下面的点点点 -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+				</ol>
+
+				<!-- 轮播主体区域-->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="img/lb1.jpg" alt="...">
+
+					</div>
+					<div class="item">
+						<img src="img/lb2.jpg" alt="...">
+						<div class="carousel-caption">
+						</div>
+					</div>
+					<div class="item">
+						<img src="img/lb3.jpg" alt="...">
+					</div>
+					<div class="item">
+						<img src="img/lb4.jpg" alt="...">
+					</div>
+					<div class="item">
+						<img style="" src="img/lb3.jpg" alt="...">
+					</div>
+				</div>
+			</div>
+			<!--***************中部主体****************-->
+			<div class='content'>
+				<div class='content-top'>
+					<!--<img src="img/lc1.jpg" />
+					<img src="img/lc2.jpg" />
+					<img src="img/lc3.jpg" />-->
+					<div class="wrapc">
+						<div class="boxc">
+							<div class="topc"></div>
+							<div class="middlec"></div>
+							<div class="bottomc"></div>
+							<div class="maskc">
+								本期特惠
+							</div>
+						</div>
+					</div>
+					<div class="wrapc" id=''>
+						<div class="boxc">
+							<div class="topc" id='topcc'></div>
+							<div class="middlec" id='middlecc'></div>
+							<div class="bottomc" id='bottomcc'></div>
+							<div class="maskc">
+								海外原产
+							</div>
+						</div>
+					</div>
+					<div class="wrapc" >
+						<div class="boxc">
+							<div class="topc"  id='topcd'></div>
+							<div class="middlec" id='middlecd'></div>
+							<div class="bottomc" id='bottomcd'></div>
+							<div class="maskc">
+								发现新品
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='content-centre'>
+					<div class='content-centre-t'>
+						<ul class='oul'>
+							<li class='kkk'>Wooden doors 木门</li>
+							<li>Floor 地板</li>
+							<li>Ceramic tile 瓷砖</li>
+							<li>Cupboard 橱柜</li>
+							<li>Bathroom 卫浴</li>
+							<li></li>
+						</ul>
+						<ol class='cct-box'>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+						</ol>
+					</div>
+					<div class='content-centre-c'>
+						<ul class='oul'>
+							<li class='kkk'>Living room 客厅</li>
+							<li>Bathroom 卫浴</li>
+							<li>Dining room 餐厅</li>
+							<li>Cupboard Kitchen 厨房</li>
+							<li></li>
+							<li></li>
+						</ul>
+						<ol class='cct-box'>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+							<li>
+								<p>
+									<span id='span'></span>
+
+								</p>
+							</li>
+						</ol>
+					</div>
+					<div class='content-centre-b'>
+						<div>
+							<img id='img3' src="img2/ht-title_6c19.jpg" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='bottom'>
+				<div>
+					<div class='tbm-left'>
+						<img src="img/log2.png" />
+						<ul>
+							<li><span id='jl1'>
+								<img src="img/jingling1.png"/>
+								</span>
+								<p>100%正品</p>
+							</li>
+							<li><span id='jl2'>
+								<img src="img/jingling1.png"/>
+								</span >
+								<p>闪电物流<br />货损赔付</p>
+							</li>
+							<li><span id='jl3'>
+								<img src="img/jingling1.png"/>
+								</span>
+								<p>15天无忧<br />退换货</p>
+							</li>
+						</ul>
+					</div>
+					<div class='tbm-center'>
+						<ul>
+							<li>购物帮助</li>
+							<li>15天无忧退换货</li>
+							<li>付款方式</li>
+							<li>配送信息</li>
+							<li>定制商品购物流程</li>
+							<li>常见问题</li>
+						</ul>
+						<ul>
+							<li>法律申明</li>
+							<li>用户注册协议</li>
+							<li>法律声明</li>
+							<li>隐私条款</li>
+						</ul>
+						<ul>
+							<li>公司信息</li>
+							<li>关于colahouse</li>
+							<li>城市服务商加盟</li>
+							<li>联系我们</li>
+						</ul>
+					</div>
+					<div class='tbm-right'>
+						<ul>
+							<li><img src="img/wx1.jpg" />
+								<p>微信下单更优惠​</p>
+							</li>
+							<li><img src="img/wx2.jpg" />
+								<p>认识克拉首席买手</p>
+							</li>
+							<li>
+								<h4> 客服热线：400-631-787</h4>
+								<h6>浙ICP备16045481号-1 2016-2021</h6>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<p id='sh'><a href="#"> < </a> </p>
+	</body>
+
+</html>

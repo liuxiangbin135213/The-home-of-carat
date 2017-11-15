@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/move.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			
+		
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+				list-style: none;
+			}
+			
+			.wrap {
+				width: 100%;
+				height: 2000px;
+				position: relative;
+			}
+			
+			nav {
+				position: relative;
+			}
+			
+			.right {
+				width: 480px;
+				height: 40px;
+				float: right;
+				position: relative;
+				top: 10px;
+			}
+			
+			span>a {
+				width: 40px;
+				padding: 5px !important;
+				font-size: 12px !important;
+				color: #FFFFFF !important;
+				margin: 0px 2px 1px 1px !important;
+			}
+			
+			.btn {
+				background-color: #222222;
+				color: #FFFFFF;
+			}
+			
+			#aaa {
+				border: 1px solid #FFFFFF;
+				width: 290px;
+				height: 30px;
+				float: left;
+			}
+			
+			#qqq {
+				border: 1px solid #000000;
+				background-color: #27282A;
+				color: #FFFFFF;
+			}
+			
+			#www {
+				top: 7px !important;
+				color: #FFFFFF
+			}
+			
+			.btm {
+				color: #FFFFFF;
+				height: 30px;
+				width: 750px;
+				position: absolute;
+				top: 100px;
+				left: -200px;
+				text-align: center;
+			}
+			
+			.btm>ul {
+				position: relative;
+				width: 750px;
+				height: 35px;
+			}
+			
+			.btm>ul>li>a {
+				text-decoration: none;
+				color: #FFFFFF;
+			}
+			
+			.btm>ul>li {
+				width: 100px;
+				height: 30px;
+				float: left;
+			}
+			
+			.btm>ul>span {
+				display: block;
+				position: absolute;
+				background-color: #FFFFFF;
+				width: 100px;
+				height: 2px;
+				left: 100px;
+				bottom: 0;
+			}
+			/*************************/
+			.content{
+				width: 90%;
+				height: 1600px;
+			
+				margin: auto;
+			}
+			.content-top{
+				border: 1px solid #DDDDDD;
+				width: 100%;
+				height: 420px;
+				margin: auto;
+				position: relative;
+			}
+			.content-top>img{
+				float: left;
+				margin: 1%;
+			}
+			.content-top>img:nth-of-type(1){
+				width: 40%;
+				height: 400px;
+			}
+			.content-top>img:nth-of-type(2){
+				width:27%;
+				height: 400px;
+			}
+			.content-top>img:nth-of-type(3){
+				width:26%;
+				height: 200px;
+			}
+			.content-top>ul{
+				width: 26%;
+				height: 194px;
+				position: absolute;
+				background-color: #C0C0C0;
+				left:72%;
+				top: 217px;
+				display: block;
+				font-family: "微软雅黑";
+				text-align: center;
+				color: #FFD945;
+			}
+			.content-top>ul>li{
+				margin-top: 10px;
+			}
+			.content-top>ul>li:nth-of-type(1){
+				font-size: 20px;
+			}
+			
+			.content-centre{
+			
+				width: 100%;
+				height: 500px;
+				margin: auto;
+				margin-top: 60px;
+				position: relative;
+				background-color: #464646;
+			
+			}
+			.cc-left{
+				float: left;
+				width: 40%;
+				
+				height: 480px;
+				overflow: hidden;
+			}
+			.cc-right{
+				float: left;
+				width: 60%;
+				;
+				height: 480px;
+				overflow: hidden;
+			}
+			.cc-right>div{
+				float: left;
+				width: 32%;
+			}
+			.cc-right>div>img{
+				width: 80%;
+				height: 206px;
+				transition: all 1s;
+			}
+			.cc-right>div{
+				text-align: center;
+				color: #FFFFFF;
+			}
+			.content-centre>ul{
+				position: absolute;
+				width: 100%;
+				top: -45px;
+				border-bottom: 1px solid #737373;
+				
+				left: 0;
+			}
+			.content-centre>ul>li{
+				width: 12%;
+				font-size: 24px;
+				color: #FFFFFF;
+				background: #E4B9B9;
+				border-bottom: 2px solid #FFFFFF;
+			}
+			.bottom {
+				width: 100%;
+				height: 266px;
+				
+				position: absolute;
+				bottom: 0;
+				background-color: #231F20;
+				color: #CDD9D9;
+			}
+			
+			.bottom>div {
+				width: 90%px;
+				height: 70%;
+				margin: 3% 5%;
+				display: flex;
+			}
+			
+			.tbm-left {
+				border-right: 2px solid #888687;
+				flex: 3;
+			}
+			
+			.tbm-center {
+				border-right: 2px solid #888687;
+				flex: 3;
+			}
+			
+			.tbm-right {
+				flex: 4;
+			}
+			
+			.tbm-left>ul {
+				width: 100%;
+				height: 100px;
+			}
+			
+			.tbm-left>ul>li {
+				float: left;
+				list-style: none;
+				margin-right: 15%;
+			}
+			
+			.tbm-left>ul>li>span {
+				position: relative;
+				display: block;
+				width: 36px;
+				height: 36px;
+				overflow: hidden;
+			}
+			
+			.tbm-left>ul>li>span>img {
+				position: absolute;
+			}
+			
+			#jl1>img {
+				top: -72px;
+			}
+			
+			#jl2>img {
+				top: -36px;
+			}
+			
+			#jl3>img {
+				top: 0px;
+			}
+			
+			.tbm-center>ul {
+				float: left;
+				margin: 2%;
+			}
+			
+			.tbm-center>ul>li {
+				list-style: none;
+			}
+			
+			.tbm-center>ul>li:nth-of-type(1) {
+				font-size: 20px;
+				font-weight: 200;
+			}
+			
+			.tbm-right>ul {
+				width: 100%;
+			}
+			
+			.tbm-right>ul>li {
+				float: left;
+				margin: 10px 2%;
+			}
+			
+			.tbm-right>ul>li>img {
+				width: 92px;
+				height: 92px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var btm = document.getElementsByClassName('btm')[0]
+				var oUl4 = btm.getElementsByTagName('ul')[0]
+				var oLis = oUl4.getElementsByTagName("li")
+				var span = oUl4.getElementsByTagName("span")[0]
+				for(var i = 0; i < oLis.length; i++) {
+					oLis[i].index = i;
+					oLis[i].onmouseover = function() {
+						//console.log(i)//6
+						move(span, {
+							"left": this.index * 100
+						});
+					}
+				}
+				for(var i = 0; i < oLis.length; i++) {
+					oLis[i].index = i;
+					oLis[i].onmouseout = function() {
+						//console.log(i)//6
+						move(span, {
+							"left":  100
+						});
+					}
+				}
+				var odivr=document.getElementsByClassName ('cc-right')[0]
+				var odivd=document.getElementsByClassName ('cc-right')[1]
+				var odivz=odivr.getElementsByTagName('div')
+				var odivm=odivd.getElementsByTagName('div')
+				var img1=odivr.getElementsByTagName('img')
+				var img2=odivd.getElementsByTagName('img')
+				for(var i=0;i<img1.length;i++){
+					img1[i].index=i;
+					img1[i].onmouseover = function(){
+						
+						this.style.transform = 'scale(1.2)'
+					
+					}
+					img1[i].onmouseout = function(){
+						
+						this.style.transform = 'scale(1)'
+					
+					}
+				}
+				for(var i=0;i<img2.length;i++){
+					img2[i].index=i;
+					img2[i].onmouseover = function(){
+						
+						this.style.transform = 'scale()'
+					
+					}
+					img2[i].onmouseout = function(){
+						
+						this.style.transform = 'scale(1)'
+					
+					}
+				}
+				
+			}
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			<nav style='height: 150px;' class="navbar navbar-inverse  ">
+				<div class="container">
+					<!--<div class="navbar-header">-->
+					<a class="navbar-brand " href="#">
+						<img alt="Brand" src="img/log1.png">
+					</a>
+					<!--</div>-->
+					<div class='right '>
+						<div style="" id='aaa' class='input-group'>
+							<input style="width: 270px; height: 30px;" type="text" id='qqq' placeholder="请输入关键字" class="form-control ">
+							<div style="" id='www' class='glyphicon glyphicon-search'></div>
+							<!--<span class="input-group-addon btn btn-primary btn-success">搜索</span>-->
+						</div>
+						<div id="">
+							<span><a class="navbar-brand" href="#">登陆</a></span><span><a class="navbar-brand" href="#">注册</a></span>
+							<button class="btn glyphicon glyphicon-shopping-cart" type="button"><span class="badge">5</span></button>
+						</div>
+						<div class='btm'>
+							<ul>
+								<li>
+									<a href="主页.html">首页</a>
+								</li>
+								<li>
+									<a href="">设计大师</a>
+								</li>
+								<li>
+									<a href="">399钻石套餐</a>
+								</li>
+								<li>
+									<a href="">选材中心</a>
+								</li>
+								<li>
+									<a href="">精选家居</a>
+								</li>
+								<li>
+									<a href="">时尚Magazine</a>
+								</li>
+								<li>
+									<a href="城市加盟.html">城市加盟</a>
+								</li>
+								<span></span>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class='content'>
+				<div class='content-top'>
+				<img src="img3/ct1.jpg" alt="" />
+				<img src="img3/ct2.jpg" alt="" />
+				<img src="img3/ct3.jpg"/>
+					<ul>
+					    <li>卧室</li>
+						<li>无论四季如何变换 </li>
+						<li>这里始终温暖而明亮 </li>
+						<li>梦想 从这里开始 </li>
+						<li> 然后 回归自我</li>
+					</ul>
+				
+				</div>
+				<div class='content-centre'>
+					<div class='cc-left'>
+						<img src="img3/cc1.jpg"/>
+					</div>
+					<div class='cc-right'>
+						<div>
+							<img src="img3/cc2.jpg" alt="" />
+							<p><a href="">周小煜</a></p>
+						</div>
+						<div>
+							<img src="img3/cc3.jpg" alt="" />
+							<p><a href="">李志龙</a></p>
+						</div>
+						<div>
+							<img src="img3/cc4.jpg" alt="" />
+							<p><a href="">温阳</a></p>
+						</div>
+						<div>
+							<img src="img3/cc5.jpg" alt="" />
+							<p><a href="">高明</a></p>
+						</div>
+						<div>
+							<img src="img3/cc6.jpg" alt="" />
+							<p><a href="">杨蕙嘉</a></p>
+						</div>
+						<div>
+							<img src="img3/cc7.jpg" alt="" />
+							<p><a href="">姜占生</a></p>
+						</div>
+					</div>
+					<ul>
+						<li>本站设计师</li>
+					</ul>
+				</div>
+				<div class='content-centre'>
+					<div class='cc-left'>
+						<img src="img3/cc1.jpg"/>
+					</div>
+					<div class='cc-right'>
+						<div>
+							<img src="img3/cb1.png" alt="" />
+							<p><a href="">样本国际工作室</a></p>
+						</div>
+						<div>
+							<img src="img3/cb2.png" alt="" />
+							<p><a href="">紫岸合众工作室</a></p>
+						</div>
+						<div>
+							<img src="img3/cb3.png" alt="" />
+							<p><a href="">柒合工作室</a></p>
+						</div>
+						<div>
+							<img src="img3/cb4.png" alt="" />
+							<p><a href="">麦驰工作室</a></p>
+						</div>
+						<div>
+							<img src="img3/cb5.png" alt="" />
+							<p><a href="">诺布设计工作室</a></p>
+						</div>
+						<div>
+							<img src="img3/cb6.png" alt="" />
+							<p><a href="">营造清美空间工作室</a></p>
+						</div>
+					</div>
+					<ul>
+						<li>本站设计师</li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class='bottom'>
+				<div>
+					<div class='tbm-left'>
+						<img src="img/log2.png" />
+						<ul>
+							<li><span id='jl1'>
+								<img src="img/jingling1.png"/>
+								</span>
+								<p>100%正品</p>
+							</li>
+							<li><span id='jl2'>
+								<img src="img/jingling1.png"/>
+								</span >
+								<p>闪电物流<br />货损赔付</p>
+							</li>
+							<li><span id='jl3'>
+								<img src="img/jingling1.png"/>
+								</span>
+								<p>15天无忧<br />退换货</p>
+							</li>
+						</ul>
+					</div>
+					<div class='tbm-center'>
+						<ul>
+							<li>购物帮助</li>
+							<li>15天无忧退换货</li>
+							<li>付款方式</li>
+							<li>配送信息</li>
+							<li>定制商品购物流程</li>
+							<li>常见问题</li>
+						</ul>
+						<ul>
+							<li>法律申明</li>
+							<li>用户注册协议</li>
+							<li>法律声明</li>
+							<li>隐私条款</li>
+						</ul>
+						<ul>
+							<li>公司信息</li>
+							<li>关于colahouse</li>
+							<li>城市服务商加盟</li>
+							<li>联系我们</li>
+						</ul>
+					</div>
+					<div class='tbm-right'>
+						<ul>
+							<li><img src="img/wx1.jpg" />
+								<p>微信下单更优惠​</p>
+							</li>
+							<li><img src="img/wx2.jpg" />
+								<p>认识克拉首席买手</p>
+							</li>
+							<li>
+								<h4> 客服热线：400-631-787</h4>
+								<h6>浙ICP备16045481号-1 2016-2021</h6>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
